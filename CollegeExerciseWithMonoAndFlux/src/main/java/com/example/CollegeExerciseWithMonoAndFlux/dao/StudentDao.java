@@ -35,4 +35,13 @@ public class StudentDao {
                 .map(i -> new Student(i, "student" + i));
 
     }
+
+    public Flux<Student> getStudentList() {
+        return Flux.range(1, 50)
+                .doOnNext(i -> System.out.println("processing count in stream flow : " + i))
+                .map(i -> new Student(i, "student" + i));
+
+    }
+
+
 }
